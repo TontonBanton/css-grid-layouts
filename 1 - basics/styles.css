@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 30px;
+  font-family: "Poppins";
+}
+
+.grid-container {
+  background: rgb(202, 200, 200);
+  max-width: 900px;
+  margin: 0 auto;                            /* put the grid in the middle */
+
+  display: grid;
+  gap: 10px;
+   /* grid-template-columns: 300px 300px 300px;  grid - 3 columns 300px each */
+  grid-template-columns: repeat(6, 1fr);     /* grid with 6 same columns */
+  grid-template-rows: 100px 200px 300px;     /* grid with 3 diferent heights rows */
+
+  justify-items: stretch;   /* horizontal - ex. start, end of cell gridline */
+  align-items: stretch;     /* vertical - ex. start/top, end/botom of cell*/
+
+}
+
+.grid-container > div {
+  background: grey;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+}
+.grid-container > div:nth-child(1){
+  grid-column: 1 / span 2;                  /* nth-child(1) - start at gridline-1 w/ width of 2columns */
+}
+.grid-container > div:nth-child(2){
+  grid-column: span 3;                      /* nth-child(2) - 2nd coloumn width is 3columns */
+}
+.grid-container > div:nth-child(3){
+  grid-column: span 1;
+}
+.grid-container > div:nth-child(4){
+  grid-column: 2 / 6;                       /* nth-child(4) - starts on gridline-2 ends on gridline-6 */
+}
+.grid-container > div:nth-child(5){
+  grid-column: span 3;                       /* nth-child(5) - width of 3columns */
+}
+.grid-container > div:nth-child(6){
+  grid-column: span 3;
+}
+
+
