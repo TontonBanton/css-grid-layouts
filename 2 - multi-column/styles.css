@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 20px;
+  font-family: "Poppins";
+  background: #d1dedd;
+}
+ul, li {
+  padding: 0;
+  list-style-type: none;
+}
+h1,h2,h3 {
+  color: #767f7e;
+}
+p {
+  color: #828b8a;
+}
+
+header{
+  max-width: 100%;
+  margin: 40px auto;
+}
+
+/* GRID CSS  */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+article.featured {
+  grid-column: span 3;              /* Make the main article take the whole 3fr on the top */
+  display: grid;                    /* Nested grid - grid w/in the grid */
+  grid-template-columns: 1fr 1fr;   /* Divide featured in 2 grid left and right */
+  gap: 60px;
+  align-items: center;              /* align vertically - same top bottom */
+}
+article img {
+  width: 100%;                /* Make the image dimension same with grid allocation not the image file dimension */
+  border: 5px solid white;
+  border-radius: 8px;
+}
+article p, article h3 {
+  margin: 20px 10;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 980px) {
+  article {
+    grid-column: span 3;
+    display: grid;                    /* Nested grid - grid w/in the grid */
+    grid-template-columns: 1fr 1fr;   /* Divide articles 1-3 in 2 grid left and right */
+    gap: 60px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 760px) {
+  article, article.featured {
+    display: block;                    /* make all of them in block of each outher */
+    margin: 0 10px;
+}
