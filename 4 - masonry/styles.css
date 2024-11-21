@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: #f7f7f7;
+}
+
+header {
+  padding: 10px;
+}
+nav {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);      /*  Grid w/ 5columns with the same sizes (1frac */
+  text-align: center;
+  align-items: center;                        /* Align items vertically */
+}
+nav a {
+  text-decoration: none;                       /* Remove underline */
+  color: #333;
+}
+nav h1 {
+  text-transform: uppercase;
+  line-height: 1em;
+}
+nav h1 div:first-child {                      /* Bigger letter for the Header above */
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+nav h1 div:last-child {                      /* Smaller letter for the below */
+  font-weight: 400;
+}
+
+ /* MAIN as The grid-container */
+main {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;         /* Grid - 3columns with the same size (1frame) */
+  grid-auto-rows: 250px;                      /* Automatically set all row (current, and added rows) */
+  gap: 30px;
+}
+main div {
+  background-color: red;
+  overflow: hidden;                           /* Hide overlapping on the elements of main container */
+  background-color: white;
+  border-radius: 6px;
+  border: 3px solid rgb(240, 233, 233);
+  box-shadow: 3px 3px 3px rgb(199, 197, 197);
+}
+main img {
+  min-width: 100%;
+  height: 100%;
+}
+main .short{                                /* Classs Short (Text Details) - takes 1row span */
+  grid-row: span 1;
+}
+main .tall{                                 /* Classs Tall (Images) - takes 2rows span */
+  grid-row: span 2;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 980px) {
+  main {
+    grid-template-columns: 1fr 1fr ;     /* Reduce the main grid in 2columns @ 980*/
+  }
+}
+
+@media screen and (max-width: 620px) {
+  main {
+    grid-template-columns: 1fr ;        /* Reduce the main grid to single column @ 620*/
+    max-width: 90%;
+    margin: 20px auto;
+
+  }
+  nav {
+    grid-template-columns: repeat(4, 1fr);    /* Reduce the nav grid to 4columns @ 620 */
+  }
+  nav h1{
+    grid-row: 1;                             /* Transfer the h1(Header Tittle) to the 1st row */
+    grid-column: span 4;                     /* Allocate all the 4columns  */
+  }
+}
+
