@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+
+ /* MAIN as The grid-container */
+ main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;         /* Grid with 3columns - 1st column slightly larger */
+  min-height: 100%;
+}
+.panel {
+  display: grid;                                /* Nested Grid - each panel as 1column grid */
+  grid-template-columns: 1fr;
+}
+.panel .text {
+  background-color: rgb(204, 201, 199);
+  padding: 30px 60px;
+}
+
+
+/* WELCOME */
+.panel.welcome{
+  grid-auto-rows: 1fr;                    /* automatically set rows 1fraction - all rows the same height */
+  background-color: rgb(54, 53, 52);
+  padding: 30px 60px;
+}
+.panel.welcome nav a {
+  color: gainsboro;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.panel.welcome p, h1 {
+  color: gainsboro;
+  max-width: 100%;
+  line-height: 2em;                     /* line spacing */
+}
+.panel.welcome footer {
+  color: gainsboro;
+  align-self: end;                    /* put right at the very bottom */
+}
+
+/* ABOUT */
+.panel.about{
+  grid-template-rows: 3fr 1fr;       /* divide in 2row with top allocation of 3fractions */
+  overflow: hidden;
+}
+.panel.about img {
+  min-width: 100%;
+  min-height: 100%;
+}
+/* PHOTOS */
+.panel.photos{
+  grid-template-rows: 1fr 3fr;       /* divide in 2row with top allocation of 3fractions */
+  overflow: hidden;
+}
+.panel.photos img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1400px) {
+  main {
+    grid-template-columns: 1fr 1fr;    /* reduce to 2 equal columns */
+  }
+  .panel.photos {
+    grid-column: span 2;               /* make the whole panel span 2columns of the main */
+    grid-template-columns: 1fr 1fr;    /* divide it into 2 columns text and photo */
+    grid-template-rows: 1fr;           /* reduce the panel single row */
+  }
+}
+
+@media screen and (max-width: 960px) {
+  main {
+    grid-template-columns: 1fr;               /* reduce to 1column with 100% width */
+    grid-template-rows: 500px 400px 400px;    /* Grid - transform to 3rows(home, about, photos) */
+  }
+  .panel.about {
+    grid-row: 2;                          /* about panel starts at row2 */
+    grid-template-columns: 1fr 1fr;       /* divide it into 2 columns text and photo */
+    grid-template-rows: 1fr;              /* reduce the panel single row */
+  }
+  .panel img {
+    width: 100%;                          /* adjust all photos */
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  main {
+    grid-template-rows: 700px 600px 600px;    /* Grid - transform to 3rows(home, about, photos) */
+  }
+  .panel.about, .panel.photos {
+    grid-template-columns: 1fr;               /* Make panels have 1column */
+    grid-template-columns: span 1;            /*  Make panels items span the whole column width*/
+    grid-template-rows: 1fr 1fr;              /*  Divide each row in the panel (text,photo) for top and bottom*/
+    border: 1px solid rgb(177, 168, 161);
+  }
+}
