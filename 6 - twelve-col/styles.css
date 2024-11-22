@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: #f5f5f5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);   /* Grids class (header, main) - 12columns */
+  gap: 20px;
+}
+
+/*  HEADER */
+header {
+  background-color: rgb(187, 184, 147);
+  padding: 5px 40px;
+  align-items: center;          /* Align items (h1, nav) on center vertically (same top and bottom) */
+}
+
+header h1 {
+  grid-column: span 6;          /* H1 - 6columns width */
+}
+header nav {
+  grid-column: 7 / span 6;      /* NAV - takes remaining 6columns width */
+  justify-self: end;            /* position on rightmost bottom */
+}
+header nav a {
+  color: #5a5858;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/*  MAIN */
+main {
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 20px;
+}
+main img {
+  grid-column: span 6;          /* IMG - takes 6columns width */
+  width: 100%;
+  border-radius: 6px;
+}
+main .welcome {
+  grid-column: 8 / span 5;
+}
+main h2 {
+  grid-column: span 12;         /* Services (h2) - takes up whole row of 12columns */
+  text-align: center;
+}
+main .card {
+  background-color: rgb(235, 229, 225);
+  grid-column: span 4;         /* Card (1,2,3) - takes 4 each of 12columns */
+  padding: 5px 20px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px black;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 960px) {
+  main img {
+    grid-column: 2 / span 10;       /* IMG - takes the whole row starting on line 2 */
+  }
+  main .welcome {
+    grid-column: 2 / span 10;       /* Welcome class - takes the whole row starting on line 3 */
+    text-align: center;
+  }
+  main .card {
+    grid-column: 3 / span 8;       /* Each card - takes the whole row starting on line 3 (making them stack on top each other) */
+  }
+
+}
